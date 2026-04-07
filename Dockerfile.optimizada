@@ -1,0 +1,17 @@
+# Uso de Alpine (Imagen ultra ligera)
+FROM python:3.11-alpine
+
+WORKDIR /app
+
+# Instalamos dependencias de sistema mínimas para yt-dlp
+RUN apk add --no-cache ffmpeg
+
+COPY requirements.txt .
+# --no-cache-dir evita guardar basura de la instalación de pip
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY app/ ./app/
+
+EXPOSE 6969
+
+CMD ["python", "app/main.py"]

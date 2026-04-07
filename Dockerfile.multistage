@@ -1,0 +1,23 @@
+# ETAPA 1: Builder (Construcción)
+FROM python:3.11-alpine AS builder
+WORKDIR /install
+COPY requirements.txt .
+# Instalamos las librerías en una carpeta temporal
+RUN pip install --prefix=/install --no-cache-dir -r requirements.txt
+
+# ETAPA 2: Runtime (Imagen Final)
+FROM python:3.11-alpine
+WORKDIR /app
+
+# Copiamos SOLO las librerías ya instaladas del builder
+COPY --from=builder /install /usr/local
+# Añadimos ffmpeg necesario para procesar video
+RUN apk add --no-cache ffmpeg
+
+# Copiamos solo el código fuente
+COPY app/ ./app/
+
+EXPOSE 6969
+
+# Beneficio: No quedan rastros de archivos temporales de instalación
+CMD ["python", "app/main.py"]

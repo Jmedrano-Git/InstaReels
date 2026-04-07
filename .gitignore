@@ -1,0 +1,16 @@
+# Entornos virtuales
+.venv/
+venv/
+env/
+
+# Python (archivos temporales)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Descargas locales (para que no subas los videos de prueba a GitHub)
+downloads/
+
+# Docker (opcional, si usas logs locales)
+*.log
