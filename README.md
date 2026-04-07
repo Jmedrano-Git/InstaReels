@@ -17,6 +17,21 @@ docker build -t app:multistage -f Dockerfile.multistage .
 
 #Desplegar el contenedor
 docker run -d -p 6969:6969 --name instareels app:multistage
+
+# VERSION OPTIMIZADA
+#Construir la imagen optimizada
+docker build -t app:optimizada -f Dockerfile.optimizada .
+
+#Desplegar el contenedor
+docker run -d -p 6969:6969 --name instareels app:optimizada
+
+# VERSION NORMAL
+#Construir la imagen multistage
+docker build -t app:normal -f Dockerfile.normal .
+
+#Desplegar el contenedor
+docker run -d -p 6969:6969 --name instareels app:normal
+
 ```
 Abre tu navegador en: http://localhost:6969
 
