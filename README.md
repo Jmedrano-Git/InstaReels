@@ -6,7 +6,10 @@ Este proyecto es una herramienta construida con **Python (Flask)** y **yt-dlp** 
 
 ### 1. Clonar el proyecto
 ```bash
-git clone <TU_URL_DE_GITHUB>
+#Entrar a la terminal y clonar el repositorio
+git clone https://github.com/Jmedrano-Git/InstaReels.git
+
+#Entrar a la app
 cd evaluacion_nube4
 
 #Construir la imagen multistage
